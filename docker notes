@@ -1,0 +1,63 @@
+22:59: ==> background mode/detached mode
+
+-d ==> container will be created it will be up and running and user will not be on the container
+
+container is runnign in the backgroud
+
+
+Scanerio: to delete a container
+
+ $ docker rm -f containername/containerid
+
+
+
+  $ docker rm container id ==> remove container that are exited state
+
+ $ docker rm -f containerid ==> remove container that are running/exitted state
+
+  $ docker rm -f $(docker ps -aq) ==> delete all the containers
+
+
+
+Scenario: Create a container from an docker Image NGINX and run the container in the detached mode
+
+
+$ docker run --name n1 -d nginx
+
+$ docker inspect containerid/name ==> will show details of container in JSON format
+
+$ docker stop containerid/name ==> stop a running container
+
+$ docker start containerid/name ==> start a exited container
+
+Scenario: to stop and container, start a container form docker host
+
+
+Scenario: Access your container from a browser
+
+
+-p option or -P option
+
+$ docker run --name web -d -p 8383:80 httpd
+
+$ docker run --name web2 -d -P httpd 
+
+
+Scenario : Saving the data of the container on the docker host - Volumes
+
+
+$ docker volume ls ==> list the volumes created on the host machine
+
+$ docker volume create myvol
+
+$ docker volume inspect myvol
+
+1. Save the data of your containers directory on the created volume which is on the host machine
+
+
+   > run command and do volume mapping
+
+ -v ==> volume mapping to container directory
+
+
+      docker run -it -v volumename:containerdir      centos
